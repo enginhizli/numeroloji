@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+
+    <!-- İlk açılışta direkt Türkçe sayfaya yönlendir -->
+    <script>
+      if (!location.pathname.endsWith("index-turkish.html")) {
+        location.replace("index-turkish.html");
+      }
+    </script>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#bbdefb" />
+
+    <title>Numeroloji</title>
+
+    <link rel="manifest" href="manifest.json" />
+    <link rel="shortcut icon" href="favicon.gif" />
+    <link href="css/numerology.css" rel="stylesheet" />
+
+    <!-- Gerekli scriptler -->
+    <script src="i18n/meaning_tr.js"></script>
+    <script src="js/numerology.js"></script>
+    <script src="js/demo.js"></script>
+
+  </head>
+
+  <body onload="checkInfo()">
+
+    <h1>Numeroloji</h1>
+
+
+    <!-- GİRİŞ FORMU -->
+    <section class="inputForm">
+      <div class="ml210">
+        <div class="field name">
+          <label>Ad Soyad</label>
+          <input id="name" value="" onKeyUp="calcName()" />
+        </div>
+
+        <div class="field bdate">
+          <label>Doğum Tarihi</label>
+          <select id="month" onChange="calcBDay()">
+            <option></option>
+            <option value="1">Ocak</option>
+            <option value="2">Şubat</option>
+            <option value="3">Mart</option>
+            <option value="4">Nisan</option>
+            <option value="5">Mayıs</option>
+            <option value="6">Haziran</option>
+            <option value="7">Temmuz</option>
+            <option value="8">Ağustos</option>
+            <option value="9">Eylül</option>
+            <option value="10">Ekim</option>
+            <option value="11">Kasım</option>
+            <option value="12">Aralık</option>
+          </select>
+
+          <input id="day" type="number" min="1" max="31" onKeyUp="calcBDay()" />
+          <input id="year" type="number" maxlength="4" onKeyUp="calcBDay()" />
+        </div>
+      </div>
+
+      <div class="fullStar">
+        <div id="star" class="star">
+          <span class="t0"></span>
+          <div class="t1"></div>
+          <div class="t2"></div>
+          <div class="t3"></div>
+          <div class="t4"></div>
+          <div class="t5"></div>
+        </div>
+        <div id="star-holder"></div>
+      </div>
+    </section>
+
+    <!-- RAPOR -->
+    <section>
+      <div id="report1"></div>
+      <div id="report2"></div>
+      <div id="report3"></div>
+    </section>
+
+    <!-- Service Worker -->
+    <script>
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker.register("sw.js");
+      }
+    </script>
+
+  </body>
+</html>
