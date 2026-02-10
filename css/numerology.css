@@ -1,0 +1,1204 @@
+/*
+  Motivational-Numerology
+  (c) 2026 Sally Faubion & Olivier Giulieri
+  http://www.sallysnumbers.com
+*/
+html {
+  scroll-behavior: smooth;
+}
+body {
+  margin: 30px;
+  font-size: 1.2em;
+  font-family: sans-serif;
+  color: #1d1d1d;
+  background-image: url(bg.gif);
+  > div {
+    margin-bottom: 20px;
+  }
+}
+a {
+  text-decoration: none;
+  border-bottom: 1px solid #0091ea;
+  color: #1d1d1d;
+  &:hover {
+    background-color: rgb(241, 248, 255);
+    border-bottom-color: #0091ea;
+  }
+}
+h1 {
+  margin: 10px 0 40px;
+  > span {
+    font-weight: 300;
+    font-size: 0.6em;
+    white-space: nowrap;
+  }
+}
+h2 {
+  margin: 12px 0 5px;
+  font-size: 1.2em;
+  > span {
+    font-weight: normal;
+    font-size: 1em;
+  }
+}
+label {
+  color: #1d1d1d;
+  display: block;
+  margin-bottom: 3px;
+  font-size: 0.9em;
+}
+input,
+select {
+  padding: 5px 4px 3px 8px;
+  font-size: 20px;
+  line-height: 25px;
+  font-family: sans-serif;
+  background-color: white;
+  border: solid grey 1px;
+  border-radius: 5px;
+}
+article {
+  margin: 0 0 15px 0;
+  padding: 5px 5px 10px 30px;
+}
+section {
+  position: relative;
+  background-color: rgb(241, 248, 255);
+  margin-bottom: 20px;
+  padding: 20px;
+  border: 2px solid #c8e1ff;
+  border-radius: 20px;
+}
+#day {
+  width: 60px;
+}
+#year {
+  width: 100px;
+}
+.name > input {
+  width: 100%;
+}
+.spaced {
+  margin: 0 10px;
+}
+.linespace > li {
+  margin: 10px;
+  > a {
+    font-weight: 600;
+  }
+}
+.field {
+  margin: 30px 0;
+}
+.inputForm {
+  z-index: 300;
+  min-height: 190px;
+}
+.desc {
+  display: inline-block;
+  margin: 10px 0 16px;
+  color: grey;
+}
+
+.calc {
+  display: block;
+  margin: 10px 0;
+  > .meaning {
+    margin: 15px 0 20px -10px;
+    color: #1a1a1a;
+    border-left: none;
+    min-height: 50px;
+  }
+}
+.meaning {
+  position: relative;
+  width: 100%;
+  margin-bottom: 10px;
+  > div {
+    padding: 0 0 0 100px;
+  }
+  > .num {
+    position: absolute;
+    top: 0;
+    left: 10px;
+    font-size: 35px;
+    border-width: 6px;
+    line-height: 42px;
+    height: 42px;
+    width: 42px;
+    padding: 5px;
+    margin-right: 10px;
+  }
+}
+.num {
+  display: inline-block;
+  border: 4px solid grey;
+  background-color: white;
+  line-height: 24px;
+  height: 24px;
+  width: 24px;
+  text-align: center;
+  border-radius: 50%;
+}
+.fl {
+  float: left;
+  margin: 10px 30px;
+  > a {
+    border-bottom: none;
+  }
+  img {
+    border-radius: 10px;
+  }
+}
+.clearer {
+  clear: both;
+  height: 0;
+  width: 0;
+}
+.i18n {
+  position: absolute;
+  top: 5px;
+  right: 20px;
+  padding: 4px;
+  > img {
+    cursor: pointer;
+    margin-left: 4px;
+    height: 11px;
+    width: 16px;
+    border: solid 1px grey;
+    transition: transform 0.5s;
+    &:hover {
+      transform: scale(1.4);
+    }
+  }
+}
+
+.artnum {
+  border-left: 10px solid #e0e0e0;
+}
+.ml210 {
+  margin: 0 20px 0 260px;
+}
+#allNumbers {
+  margin: 0 0 20px 0;
+  > span {
+    padding: 5px;
+    display: inline-block;
+    height: 24px;
+    width: 24px;
+    margin-right: 10px;
+  }
+}
+.c1,
+.c10,
+.c19,
+.c28 {
+  border-color: #f44336 !important;
+}
+.c2,
+.c20 {
+  border-color: #ff9800 !important;
+}
+.c3,
+.c12,
+.c21,
+.c30 {
+  border-color: #ffeb3b !important;
+}
+.c4,
+.c13,
+.c31 {
+  border-color: #4caf50 !important;
+}
+.c5,
+.c14,
+.c23 {
+  border-color: #48d1cc !important;
+}
+.c6,
+.c15,
+.c24 {
+  border-color: #2196f3 !important;
+}
+.c7,
+.c16,
+.c25 {
+  border-color: #6a0dad !important;
+}
+.c8,
+.c17,
+.c26 {
+  border-color: #d000d0 !important;
+}
+.c9,
+.c18,
+.c27 {
+  border-color: #ffc107 !important;
+}
+.c11,
+.c29 {
+  border-color: #9c27b0 !important;
+}
+.c22 {
+  border-color: #3f51b5 !important;
+}
+
+.k1,
+.k10,
+.k19,
+.k28 {
+  border-bottom-color: #f44336 !important;
+}
+.k2,
+.k20 {
+  border-bottom-color: #ff9800 !important;
+}
+.k3,
+.k12,
+.k21,
+.k30 {
+  border-bottom-color: #ffeb3b !important;
+}
+.k4,
+.k13,
+.k31 {
+  border-bottom-color: #4caf50 !important;
+}
+.k5,
+.k14,
+.k23 {
+  border-bottom-color: #48d1cc !important;
+}
+.k6,
+.k15,
+.k24 {
+  border-bottom-color: #2196f3 !important;
+}
+.k7,
+.k16,
+.k25 {
+  border-bottom-color: #6a0dad !important;
+}
+.k8,
+.k17,
+.k26 {
+  border-bottom-color: #d000d0 !important;
+}
+.k9,
+.k18,
+.k27 {
+  border-bottom-color: #ffc107 !important;
+}
+.k11,
+.k29 {
+  border-bottom-color: #9c27b0 !important;
+}
+.k22 {
+  border-bottom-color: #3f51b5 !important;
+}
+
+.copy {
+  margin: 50px 0 20px;
+  color: gray;
+  font-size: 0.8em;
+}
+.grey {
+  color: gray;
+}
+
+#sally {
+  display: none;
+  li {
+    margin-bottom: 10px;
+  }
+}
+
+.fullStar {
+  position: absolute;
+  top: 0;
+  left: 5px;
+  min-height: 220px;
+}
+#star-holder {
+  z-index: 200;
+  padding: 20px;
+  left: 10px;
+  top: 10px;
+  position: absolute;
+  height: 240px;
+  width: 240px;
+  .num {
+    position: absolute;
+    padding: 4px;
+  }
+  .num > span {
+    display: block;
+    opacity: 0;
+    position: relative;
+    top: 17px;
+    left: -34px;
+    width: 100px;
+    z-index: 100;
+    font-size: 0.9rem;
+    transition: opacity 0.3s ease 0.1s;
+  }
+  .num:hover > span {
+    opacity: 1;
+  }
+
+  .character {
+    top: 0px;
+    left: 95px;
+    > span {
+      left: 12px;
+      top: 0;
+    }
+  }
+  .soul {
+    top: 66px;
+    left: 9px;
+  }
+  .agenda {
+    top: 65px;
+    left: 179px;
+    > span {
+      top: 22px;
+      left: -28px;
+    }
+  }
+  .attitude {
+    top: 158px;
+    left: 144px;
+  }
+  .personality {
+    top: 158px;
+    left: 44px;
+  }
+  .destiny {
+    top: 88px;
+    left: 95px;
+    > span {
+      left: 28px;
+      top: 0;
+    }
+  }
+  .purpose {
+    display: none;
+  }
+}
+.star > div {
+  z-index: 110;
+  width: 0;
+  height: 0;
+  border-left: 23px solid transparent;
+  border-right: 23px solid transparent;
+  border-bottom: 64px solid #c8e1ff;
+}
+
+.t0 {
+  position: absolute;
+  display: inline-block;
+  border-radius: 50%;
+  border: solid 39px #c8e1ff;
+  top: 81px;
+  left: 86px;
+  background-color: #c8e1ff;
+}
+.t1,
+.t2,
+.t3,
+.t4,
+.t5 {
+  position: absolute;
+}
+.t1 {
+  top: 24px;
+  left: 102px;
+}
+.t2 {
+  transform: rotate(72deg);
+  top: 68px;
+  left: 163px;
+}
+.t3 {
+  transform: rotate(144deg);
+  top: 139px;
+  left: 140px;
+}
+.t4 {
+  transform: rotate(-144deg);
+  top: 139px;
+  left: 64px;
+}
+.t5 {
+  transform: rotate(-72deg);
+  top: 68px;
+  left: 41px;
+}
+.rpt-perso .num {
+  padding: 4px;
+}
+
+@media only screen and (max-width: 670px) {
+  body {
+    margin: 30px 10px;
+  }
+  section {
+    padding: 20px 10px;
+  }
+  .ml210 {
+    margin-left: 10px;
+  }
+  .fullStar {
+    position: relative;
+  }
+  .meaning > .num {
+    left: -10px;
+  }
+  .meaning > div {
+    padding-left: 60px;
+  }
+  .fl {
+    margin: 10px 0px;
+  }
+}
+
+@media print {
+  @page {
+    margin: 1cm 1cm;
+  }
+  #sally,
+  article {
+    page-break-inside: avoid;
+    margin-bottom: 40px;
+  }
+  a[href^="http"]::after {
+    font-weight: 500;
+    content: " (" attr(href) ") ";
+  }
+  .num > span,
+  .field > label > span.grey {
+    display: none !important;
+  }
+  section {
+    border: none;
+    border-bottom: 2px solid silver;
+  }
+}
+#report1 > article .num,
+#report2 > article .num,
+#report3 > article .num,
+#allNumbers > span {
+  transition: transform 0.3s 0.1s;
+}
+#report1 > article:hover .num,
+#report2 > article:hover .num,
+#report3 > article:hover .num,
+#allNumbers > span:hover {
+  transform: scale(1.4);
+}
+.sally {
+  height: 206px;
+  width: 195px;
+}
+.heart {
+  font-size: 20px;
+  position: relative;
+  top: 4px;
+  display: inline-block;
+  text-align: center;
+  transition: color 1s;
+}
+.evo-footer {
+  margin-top: 10px;
+}
+.evo-footer:hover .heart {
+  color: #bf360c;
+  -webkit-animation: beat 0.35s infinite alternate;
+  -moz-animation: beat 0.35s infinite alternate;
+  -ms-animation: beat 0.35s infinite alternate;
+  -o-animation: beat 0.35s infinite alternate;
+  animation: beat 0.35s infinite alternate;
+  -webkit-transform-origin: center;
+  -moz-transform-origin: center;
+  -o-transform-origin: center;
+  -ms-transform-origin: center;
+  transform-origin: center;
+}
+
+@keyframes beat {
+  to {
+    -webkit-transform: scale(1.4);
+    -moz-transform: scale(1.4);
+    -o-transform: scale(1.4);
+    -ms-transform: scale(1.4);
+    transform: scale(1.4);
+  }
+}
+
+@-moz-keyframes beat {
+  to {
+    -moz-transform: scale(1.4);
+    transform: scale(1.4);
+  }
+}
+
+@-webkit-keyframes beat {
+  to {
+    -webkit-transform: scale(1.4);
+    transform: scale(1.4);
+  }
+}
+
+@-ms-keyframes beat {
+  to {
+    -ms-transform: scale(1.4);
+    transform: scale(1.4);
+  }
+}
+
+@-o-keyframes beat {
+  to {
+    -o-transform: scale(1.4);
+    transform: scale(1.4);
+  }
+}
+
+/* =========================
+   MOBİL UYUMLULUK (EnHIZLI)
+   ========================= */
+@media (max-width: 768px) {
+
+  body {
+    padding: 10px;
+  }
+
+  h1 {
+    font-size: 22px;
+    text-align: center;
+    line-height: 1.3;
+    margin-bottom: 10px;
+  }
+
+  h1 span {
+    display: block;
+    font-size: 13px;
+    margin-top: 5px;
+    color: #555;
+  }
+
+  .inputForm {
+    margin-top: 15px;
+  }
+
+  .field label {
+    font-size: 14px;
+  }
+
+  .field input,
+  .field select {
+    width: 100%;
+    font-size: 16px;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+
+  .ml210 {
+    margin-left: 0 !important;
+  }
+
+  .fullStar {
+    margin-top: 20px;
+    text-align: center;
+  }
+
+  #report1,
+  #report2,
+  #report3 {
+    margin-top: 20px;
+  }
+
+  .artnum h2 {
+    font-size: 18px;
+  }
+
+  .artnum .desc {
+    font-size: 14px;
+    line-height: 1.4;
+  }
+}
+
+/* =================================================
+   REAL PHONE OPTIMIZATION – EnHIZLI Numeroloji
+   Target: iPhone / Android (PWA & Browser)
+   ================================================= */
+@media (max-width: 480px) {
+
+  /* Genel gövde */
+  body {
+    padding: 8px;
+    font-size: 15px;
+  }
+
+  /* Başlık */
+  h1 {
+    font-size: 20px;
+    text-align: center;
+    line-height: 1.25;
+    margin: 10px 0 8px 0;
+  }
+
+  h1 span {
+    display: block;
+    font-size: 12px;
+    margin-top: 4px;
+    color: #666;
+  }
+
+  /* Form alanı */
+  .inputForm {
+    padding: 10px;
+    margin-top: 10px;
+  }
+
+  .field label {
+    font-size: 13px;
+    margin-bottom: 4px;
+  }
+
+  .field input,
+  .field select {
+    width: 100%;
+    font-size: 16px; /* iOS zoom yapmasın */
+    padding: 10px 8px;
+    margin-bottom: 8px;
+    border-radius: 6px;
+  }
+
+  /* Masaüstü offset’i iptal */
+  .ml210 {
+    margin-left: 0 !important;
+  }
+
+  /* ⭐ YILDIZ – gerçek telefon oranı */
+  .fullStar {
+    margin-top: 12px;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  #star {
+    transform: scale(0.7);   /* yıldız küçültme */
+    transform-origin: center;
+    margin: 0 auto;
+  }
+
+  /* Rapor bölümü */
+  #report1,
+  #report2,
+  #report3 {
+    margin-top: 14px;
+  }
+
+  .artnum {
+    padding: 10px;
+    margin-bottom: 12px;
+  }
+
+  .artnum h2 {
+    font-size: 17px;
+    margin-bottom: 6px;
+  }
+
+  .artnum .desc {
+    font-size: 14px;
+    line-height: 1.45;
+  }
+
+  /* Alt boşlukları sıkılaştır */
+  section {
+    margin-bottom: 10px;
+  }
+}
+
+/* =========================
+   MOBİL TEMİZLİK: YILDIZ + BOŞ KUTU KALDIR
+   ========================= */
+@media (max-width: 480px) {
+
+  /* ⭐ yıldız alanını tamamen gizle */
+  .fullStar,
+  #star,
+  #star-holder {
+    display: none !important;
+  }
+
+  /* yıldız yokken form daha kompakt olsun */
+  .inputForm {
+    padding-bottom: 12px !important;
+  }
+
+  /* alttaki boş oval kutu (genelde star-holder veya boş container) */
+  #star-holder:empty,
+  .fullStar:empty {
+    display: none !important;
+  }
+
+  /* =========================
+     Gün / Ay / Yıl kutuları aynı boy
+     ========================= */
+  .inputForm .field.bdate {
+    text-align: center;
+  }
+
+  .inputForm .field.bdate input,
+  .inputForm .field.bdate select {
+    height: 44px;
+    font-size: 16px;
+    width: 110px;              /* ✅ hepsi yıl kutusu gibi */
+    box-sizing: border-box;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 6px 4px;
+    text-align: center;
+  }
+}
+
+/* =========================================
+   REAL PHONE FINAL LAYOUT FIX – EnHIZLI
+   ========================================= */
+@media (max-width: 480px) {
+
+  /* Sayfayı dikey flex yap */
+  body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 8px;
+  }
+
+  /* Başlık tam ortada */
+  h1 {
+    text-align: center;
+    width: 100%;
+    margin: 12px 0 10px 0;
+  }
+
+  h1 span {
+    display: block;
+    text-align: center;
+  }
+
+  /* Ana form kartı TAM ORTADA */
+  .inputForm {
+    width: 100%;
+    max-width: 340px;
+    margin: 0 auto;
+    padding: 14px;
+  }
+
+  .ml210 {
+    margin-left: 0 !important;
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Label yazıları TAM ORTALI */
+  .field label {
+    display: block;
+    text-align: center;
+    margin-bottom: 6px;
+  }
+
+  /* Tam isim input ortalı */
+  .field.name input {
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto 16px auto;
+    display: block;
+  }
+
+  /* Doğum tarihi alanları ortalı ve hizalı */
+  .field.bdate {
+    text-align: center;
+  }
+
+  .field.bdate input,
+  .field.bdate select {
+    width: 110px;
+    height: 44px;
+    font-size: 16px;
+    margin: 6px 4px;
+    text-align: center;
+    box-sizing: border-box;
+  }
+
+  /* Yıldız ve boş alanlar tamamen kapalı */
+  .fullStar,
+  #star,
+  #star-holder {
+    display: none !important;
+  }
+
+  /* RAPORLAR üstte kalsın, sayfayı şişirmesin */
+  section {
+    width: 100%;
+    max-width: 340px;
+    margin: 0 auto;
+  }
+
+  /* FOOTER EN ALTA YAPIŞSIN */
+  .copy {
+    margin-top: auto;
+    width: 100%;
+    text-align: center;
+    font-size: 12px;
+    padding: 8px 0;
+  }
+}
+
+/* =========================================
+   MOBİL: TAM ORTA HİZALAMA (KİLİT)
+   ========================================= */
+@media (max-width: 480px) {
+
+  /* Her şeyi ortada tut */
+  body {
+    margin: 0;
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Başlık alanı ortalı */
+  h1, h1 span {
+    text-align: center !important;
+    width: 100%;
+  }
+
+  /* Ana kartı TAM ortala */
+  section.inputForm {
+    width: calc(100% - 16px) !important;
+    max-width: 340px !important;
+    margin: 0 auto !important;
+    padding: 14px !important;
+    box-sizing: border-box !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+
+  /* İç blok (ml210) kayıklığı sıfırla */
+  .inputForm .ml210 {
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    text-align: center !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+
+  /* Field’lar ortalı */
+  .inputForm .field {
+    width: 100% !important;
+    max-width: 320px !important;
+    margin: 0 auto 12px auto !important;
+  }
+
+  .inputForm .field label {
+    text-align: center !important;
+    display: block !important;
+    width: 100% !important;
+    margin-bottom: 6px !important;
+  }
+
+  /* Tam isim input */
+  .inputForm .field.name input {
+    width: 100% !important;
+    max-width: 320px !important;
+    margin: 0 auto !important;
+    display: block !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Doğum tarihi: tek satır, ortada */
+  .inputForm .field.bdate {
+    width: 100% !important;
+    max-width: 320px !important;
+    text-align: center !important;
+  }
+
+  /* Gün / Ay / Yıl aynı genişlikte ve ortada */
+  .inputForm .field.bdate input,
+  .inputForm .field.bdate select {
+    width: 96px !important;      /* üçlü sığsın diye ideal */
+    height: 44px !important;
+    font-size: 16px !important;
+    margin: 6px 4px !important;
+    display: inline-block !important;
+    vertical-align: middle !important;
+    text-align: center !important;
+    box-sizing: border-box !important;
+  }
+
+  /* ⭐ yıldız alanı kapalı kalsın */
+  .fullStar, #star, #star-holder {
+    display: none !important;
+  }
+
+  /* Alttaki geniş oval/boş kutuyu mobilde tamamen gizle */
+  #report1, #report2, #report3 {
+    width: calc(100% - 16px) !important;
+    max-width: 340px !important;
+    margin: 12px auto 0 auto !important;
+  }
+
+  /* Eğer o oval kutu "report" container’dan geliyorsa: boşken sakla */
+  #report1:empty, #report2:empty, #report3:empty {
+    display: none !important;
+  }
+}
+
+/* =========================================
+   MOBİL: ORTAYA AL + GÜN/AY/YIL TEK SATIR
+   ========================================= */
+@media (max-width: 480px) {
+
+  /* Sayfayı dikey ortala */
+  body {
+    min-height: 100vh !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    padding: 8px !important;
+  }
+
+  /* Başlık üstte kalsın ama çok yer kaplamasın */
+  h1 {
+    margin: 10px 0 6px 0 !important;
+  }
+
+  /* Kartı ekranda daha aşağı/ortaya al */
+  section.inputForm {
+    margin-top: 18px !important;
+    width: calc(100% - 16px) !important;
+    max-width: 340px !important;
+  }
+
+  /* Doğum tarihi satırını TEK SATIR zorla */
+  .inputForm .field.bdate {
+    width: 100% !important;
+    text-align: center !important;
+    white-space: nowrap !important;   /* alt satıra düşmeyi engeller */
+  }
+
+  /* 3 kutu yan yana sığsın diye genişliği ayarla */
+  .inputForm .field.bdate input,
+  .inputForm .field.bdate select {
+    width: 92px !important;           /* 3*92 + margin = tek satır */
+    height: 44px !important;
+    display: inline-block !important;
+    vertical-align: middle !important;
+    margin: 6px 3px !important;
+    font-size: 16px !important;
+    box-sizing: border-box !important;
+    text-align: center !important;
+  }
+
+  /* Hala sığmazsa (çok nadir) daha da küçültür */
+  @supports (-webkit-touch-callout: none) {
+    .inputForm .field.bdate input,
+    .inputForm .field.bdate select {
+      width: 90px !important;
+    }
+  }
+}
+
+/* =========================================
+   MODERN: Sonuç alanı boşken görünmez/minimal
+   ========================================= */
+@media (max-width: 480px) {
+  #report1:empty, #report2:empty, #report3:empty {
+    display: none !important;   /* boşken hiç görünmesin */
+  }
+}
+
+1
+
+/* =========================================
+   MODERN: Raporları kart yap
+   ========================================= */
+@media (max-width: 480px) {
+
+  /* Sonuç bölümleri: form ile aynı genişlikte */
+  #report1, #report2, #report3 {
+    width: calc(100% - 20px) !important;
+    max-width: 340px !important;
+    margin: 14px auto 0 auto !important;
+  }
+
+  /* Her bir numeroloji kartı */
+  .artnum {
+    background: rgba(255, 255, 255, 0.92) !important;
+    border: 1px solid rgba(0, 0, 0, 0.08) !important;
+    border-radius: 14px !important;
+    padding: 12px 12px !important;
+    margin: 10px 0 !important;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08) !important;
+    backdrop-filter: blur(6px);
+  }
+
+  .artnum h2 {
+    font-size: 16px !important;
+    margin: 0 0 6px 0 !important;
+    text-align: left !important;
+  }
+
+  .artnum .desc {
+    font-size: 14px !important;
+    line-height: 1.45 !important;
+    color: rgba(0, 0, 0, 0.75) !important;
+  }
+
+  /* Kartlar gelince daha “premium” boşluk */
+  #report1 .artnum:first-child,
+  #report2 .artnum:first-child,
+  #report3 .artnum:first-child {
+    margin-top: 0 !important;
+  }
+}
+
+/* =========================================
+   MODERN: Form kartını iyileştir
+   ========================================= */
+@media (max-width: 480px) {
+  section.inputForm {
+    background: rgba(255, 255, 255, 0.88) !important;
+    border: 1px solid rgba(0, 0, 0, 0.08) !important;
+    border-radius: 18px !important;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.10) !important;
+  }
+}
+
+2
+
+/* =========================================
+   SONUÇLAR: YUMUŞAK GEÇİŞ (AUTO SCROLL YOK)
+   ========================================= */
+@media (max-width: 480px) {
+
+  /* Varsayılan: gizli ama yer hesaplaması var */
+  #report1, #report2, #report3 {
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.45s ease, transform 0.45s ease;
+    pointer-events: none;
+  }
+
+  /* Sonuç gelince aktif olacak */
+  #report1.show,
+  #report2.show,
+  #report3.show {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+}
+
+6
+
+/* =========================================
+   MOBİL: SONUÇLARI GERÇEK "KART" YAP
+   ========================================= */
+@media (max-width: 480px) {
+
+  /* Sonuç kolonlarını tam genişlikte ve kart listesi gibi */
+  #report1, #report2, #report3 {
+    width: calc(100% - 20px) !important;
+    max-width: 360px !important;
+    margin: 14px auto 0 auto !important;
+  }
+
+  /* Her bir sonuç bloğunu kart yap */
+  #report1 .artnum,
+  #report2 .artnum,
+  #report3 .artnum {
+    background: #ffffff !important;
+    border: 1px solid rgba(0,0,0,0.08) !important;
+    border-radius: 16px !important;
+    padding: 14px 14px 12px 14px !important;
+    margin: 12px 0 !important;
+    box-shadow: 0 10px 24px rgba(0,0,0,0.10) !important;
+    overflow: hidden !important;
+    position: relative !important;
+  }
+
+  /* Soldaki renkli şerit/çubuk varsa kaldır (kart gibi dursun) */
+  #report1 .artnum:before,
+  #report2 .artnum:before,
+  #report3 .artnum:before {
+    display: none !important;
+    content: none !important;
+  }
+
+  /* Büyük yuvarlak sayı balonu varsa küçült + sağa kaydırma */
+  #report1 .artnum .num,
+  #report2 .artnum .num,
+  #report3 .artnum .num {
+    float: none !important;
+    width: auto !important;
+    height: auto !important;
+    margin: 10px 0 0 0 !important;
+  }
+
+  /* Başlıklar */
+  #report1 .artnum h2,
+  #report2 .artnum h2,
+  #report3 .artnum h2 {
+    font-size: 18px !important;
+    margin: 0 0 8px 0 !important;
+    line-height: 1.25 !important;
+  }
+
+  /* Açıklama metni */
+  #report1 .artnum .desc,
+  #report2 .artnum .desc,
+  #report3 .artnum .desc {
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+    color: rgba(0,0,0,0.75) !important;
+  }
+
+  /* Kart içindeki paragraflar */
+  #report1 .artnum p,
+  #report2 .artnum p,
+  #report3 .artnum p {
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+    margin: 8px 0 0 0 !important;
+  }
+}
+
+son
+
+/* =========================================
+   MOBİL: YILDIZ (fullStar) TAMAMEN KAPAT
+   ========================================= */
+@media (max-width: 480px) {
+  .fullStar {
+    display: none !important;
+  }
+}
+
+@media (max-width: 480px) {
+  section.inputForm {
+    margin-top: 12px !important;
+    padding-bottom: 14px !important;
+  }
+}
